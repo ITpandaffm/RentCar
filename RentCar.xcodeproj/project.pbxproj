@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8BF712571DD0515B004CE5A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF712561DD0515B004CE5A0 /* main.m */; };
+		8BF7125A1DD0515B004CE5A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF712591DD0515B004CE5A0 /* AppDelegate.m */; };
+		8BF7125D1DD0515B004CE5A0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7125C1DD0515B004CE5A0 /* ViewController.m */; };
+		8BF712601DD0515B004CE5A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF7125E1DD0515B004CE5A0 /* Main.storyboard */; };
+		8BF712621DD0515B004CE5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF712611DD0515B004CE5A0 /* Assets.xcassets */; };
+		8BF712651DD0515B004CE5A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF712631DD0515B004CE5A0 /* LaunchScreen.storyboard */; };
+		8BF712701DD0515B004CE5A0 /* RentCarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7126F1DD0515B004CE5A0 /* RentCarTests.m */; };
+		8BF7127B1DD0515B004CE5A0 /* RentCarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7127A1DD0515B004CE5A0 /* RentCarUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BF7126C1DD0515B004CE5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BF7124A1DD0515B004CE5A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BF712511DD0515B004CE5A0;
+			remoteInfo = RentCar;
+		};
+		8BF712771DD0515B004CE5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BF7124A1DD0515B004CE5A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BF712511DD0515B004CE5A0;
+			remoteInfo = RentCar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8BF712521DD0515B004CE5A0 /* RentCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BF712561DD0515B004CE5A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8BF712581DD0515B004CE5A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8BF712591DD0515B004CE5A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8BF7125B1DD0515B004CE5A0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8BF7125C1DD0515B004CE5A0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8BF7125F1DD0515B004CE5A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BF712611DD0515B004CE5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BF712641DD0515B004CE5A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8BF712661DD0515B004CE5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF7126B1DD0515B004CE5A0 /* RentCarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RentCarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BF7126F1DD0515B004CE5A0 /* RentCarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RentCarTests.m; sourceTree = "<group>"; };
+		8BF712711DD0515B004CE5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF712761DD0515B004CE5A0 /* RentCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RentCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BF7127A1DD0515B004CE5A0 /* RentCarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RentCarUITests.m; sourceTree = "<group>"; };
+		8BF7127C1DD0515B004CE5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8BF7124F1DD0515B004CE5A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF712681DD0515B004CE5A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF712731DD0515B004CE5A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8BF712491DD0515B004CE5A0 = {
+			isa = PBXGroup;
+			children = (
+				8BF712541DD0515B004CE5A0 /* RentCar */,
+				8BF7126E1DD0515B004CE5A0 /* RentCarTests */,
+				8BF712791DD0515B004CE5A0 /* RentCarUITests */,
+				8BF712531DD0515B004CE5A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8BF712531DD0515B004CE5A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BF712521DD0515B004CE5A0 /* RentCar.app */,
+				8BF7126B1DD0515B004CE5A0 /* RentCarTests.xctest */,
+				8BF712761DD0515B004CE5A0 /* RentCarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BF712541DD0515B004CE5A0 /* RentCar */ = {
+			isa = PBXGroup;
+			children = (
+				8BF712581DD0515B004CE5A0 /* AppDelegate.h */,
+				8BF712591DD0515B004CE5A0 /* AppDelegate.m */,
+				8BF7125B1DD0515B004CE5A0 /* ViewController.h */,
+				8BF7125C1DD0515B004CE5A0 /* ViewController.m */,
+				8BF7125E1DD0515B004CE5A0 /* Main.storyboard */,
+				8BF712611DD0515B004CE5A0 /* Assets.xcassets */,
+				8BF712631DD0515B004CE5A0 /* LaunchScreen.storyboard */,
+				8BF712661DD0515B004CE5A0 /* Info.plist */,
+				8BF712551DD0515B004CE5A0 /* Supporting Files */,
+			);
+			path = RentCar;
+			sourceTree = "<group>";
+		};
+		8BF712551DD0515B004CE5A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8BF712561DD0515B004CE5A0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BF7126E1DD0515B004CE5A0 /* RentCarTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7126F1DD0515B004CE5A0 /* RentCarTests.m */,
+				8BF712711DD0515B004CE5A0 /* Info.plist */,
+			);
+			path = RentCarTests;
+			sourceTree = "<group>";
+		};
+		8BF712791DD0515B004CE5A0 /* RentCarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7127A1DD0515B004CE5A0 /* RentCarUITests.m */,
+				8BF7127C1DD0515B004CE5A0 /* Info.plist */,
+			);
+			path = RentCarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BF712511DD0515B004CE5A0 /* RentCar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BF7127F1DD0515B004CE5A0 /* Build configuration list for PBXNativeTarget "RentCar" */;
+			buildPhases = (
+				8BF7124E1DD0515B004CE5A0 /* Sources */,
+				8BF7124F1DD0515B004CE5A0 /* Frameworks */,
+				8BF712501DD0515B004CE5A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RentCar;
+			productName = RentCar;
+			productReference = 8BF712521DD0515B004CE5A0 /* RentCar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BF7126A1DD0515B004CE5A0 /* RentCarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BF712821DD0515B004CE5A0 /* Build configuration list for PBXNativeTarget "RentCarTests" */;
+			buildPhases = (
+				8BF712671DD0515B004CE5A0 /* Sources */,
+				8BF712681DD0515B004CE5A0 /* Frameworks */,
+				8BF712691DD0515B004CE5A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BF7126D1DD0515B004CE5A0 /* PBXTargetDependency */,
+			);
+			name = RentCarTests;
+			productName = RentCarTests;
+			productReference = 8BF7126B1DD0515B004CE5A0 /* RentCarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8BF712751DD0515B004CE5A0 /* RentCarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BF712851DD0515B004CE5A0 /* Build configuration list for PBXNativeTarget "RentCarUITests" */;
+			buildPhases = (
+				8BF712721DD0515B004CE5A0 /* Sources */,
+				8BF712731DD0515B004CE5A0 /* Frameworks */,
+				8BF712741DD0515B004CE5A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BF712781DD0515B004CE5A0 /* PBXTargetDependency */,
+			);
+			name = RentCarUITests;
+			productName = RentCarUITests;
+			productReference = 8BF712761DD0515B004CE5A0 /* RentCarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8BF7124A1DD0515B004CE5A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = ITPanda;
+				TargetAttributes = {
+					8BF712511DD0515B004CE5A0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = X4435MZ82Y;
+						ProvisioningStyle = Automatic;
+					};
+					8BF7126A1DD0515B004CE5A0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = X4435MZ82Y;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8BF712511DD0515B004CE5A0;
+					};
+					8BF712751DD0515B004CE5A0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = X4435MZ82Y;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8BF712511DD0515B004CE5A0;
+					};
+				};
+			};
+			buildConfigurationList = 8BF7124D1DD0515B004CE5A0 /* Build configuration list for PBXProject "RentCar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8BF712491DD0515B004CE5A0;
+			productRefGroup = 8BF712531DD0515B004CE5A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8BF712511DD0515B004CE5A0 /* RentCar */,
+				8BF7126A1DD0515B004CE5A0 /* RentCarTests */,
+				8BF712751DD0515B004CE5A0 /* RentCarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8BF712501DD0515B004CE5A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BF712651DD0515B004CE5A0 /* LaunchScreen.storyboard in Resources */,
+				8BF712621DD0515B004CE5A0 /* Assets.xcassets in Resources */,
+				8BF712601DD0515B004CE5A0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF712691DD0515B004CE5A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF712741DD0515B004CE5A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BF7124E1DD0515B004CE5A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BF7125D1DD0515B004CE5A0 /* ViewController.m in Sources */,
+				8BF7125A1DD0515B004CE5A0 /* AppDelegate.m in Sources */,
+				8BF712571DD0515B004CE5A0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF712671DD0515B004CE5A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BF712701DD0515B004CE5A0 /* RentCarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF712721DD0515B004CE5A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BF7127B1DD0515B004CE5A0 /* RentCarUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BF7126D1DD0515B004CE5A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BF712511DD0515B004CE5A0 /* RentCar */;
+			targetProxy = 8BF7126C1DD0515B004CE5A0 /* PBXContainerItemProxy */;
+		};
+		8BF712781DD0515B004CE5A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BF712511DD0515B004CE5A0 /* RentCar */;
+			targetProxy = 8BF712771DD0515B004CE5A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8BF7125E1DD0515B004CE5A0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF7125F1DD0515B004CE5A0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BF712631DD0515B004CE5A0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF712641DD0515B004CE5A0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8BF7127D1DD0515B004CE5A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BF7127E1DD0515B004CE5A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BF712801DD0515B004CE5A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X4435MZ82Y;
+				INFOPLIST_FILE = RentCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-Panda.RentCar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8BF712811DD0515B004CE5A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X4435MZ82Y;
+				INFOPLIST_FILE = RentCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-Panda.RentCar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8BF712831DD0515B004CE5A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X4435MZ82Y;
+				INFOPLIST_FILE = RentCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-Panda.RentCarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RentCar.app/RentCar";
+			};
+			name = Debug;
+		};
+		8BF712841DD0515B004CE5A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X4435MZ82Y;
+				INFOPLIST_FILE = RentCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-Panda.RentCarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RentCar.app/RentCar";
+			};
+			name = Release;
+		};
+		8BF712861DD0515B004CE5A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = X4435MZ82Y;
+				INFOPLIST_FILE = RentCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-Panda.RentCarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RentCar;
+			};
+			name = Debug;
+		};
+		8BF712871DD0515B004CE5A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = X4435MZ82Y;
+				INFOPLIST_FILE = RentCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-Panda.RentCarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RentCar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8BF7124D1DD0515B004CE5A0 /* Build configuration list for PBXProject "RentCar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BF7127D1DD0515B004CE5A0 /* Debug */,
+				8BF7127E1DD0515B004CE5A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BF7127F1DD0515B004CE5A0 /* Build configuration list for PBXNativeTarget "RentCar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BF712801DD0515B004CE5A0 /* Debug */,
+				8BF712811DD0515B004CE5A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8BF712821DD0515B004CE5A0 /* Build configuration list for PBXNativeTarget "RentCarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BF712831DD0515B004CE5A0 /* Debug */,
+				8BF712841DD0515B004CE5A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8BF712851DD0515B004CE5A0 /* Build configuration list for PBXNativeTarget "RentCarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BF712861DD0515B004CE5A0 /* Debug */,
+				8BF712871DD0515B004CE5A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8BF7124A1DD0515B004CE5A0 /* Project object */;
+}
