@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MySliderView">
+            <connections>
+                <outlet property="sliderWrapperView" destination="Omm-wE-u6L" id="SOQ-5L-jQi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="dI8-2G-R5O">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YA0-R6-hU3">
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日租" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0Y-L9-VVf">
+                            <color key="backgroundColor" red="0.87918675199999996" green="0.87918675199999996" blue="0.87918675199999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时租" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jH-do-y8A">
+                            <color key="backgroundColor" red="0.87918675199999996" green="0.87918675199999996" blue="0.87918675199999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长租" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkk-Wt-APZ">
+                            <color key="backgroundColor" red="0.87918675199999996" green="0.87918675199999996" blue="0.87918675199999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="试驾" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P2-kK-7aS">
+                            <color key="backgroundColor" red="0.87918675199999996" green="0.87918675199999996" blue="0.87918675199999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="3jH-do-y8A" firstAttribute="width" secondItem="fkk-Wt-APZ" secondAttribute="width" id="6c3-vw-gXR"/>
+                        <constraint firstAttribute="height" constant="21" id="Qq9-Kv-nhe"/>
+                        <constraint firstItem="fkk-Wt-APZ" firstAttribute="width" secondItem="9P2-kK-7aS" secondAttribute="width" id="ry9-SV-Uf7"/>
+                        <constraint firstItem="P0Y-L9-VVf" firstAttribute="width" secondItem="3jH-do-y8A" secondAttribute="width" id="vHr-7C-Kkl"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-wE-u6L">
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="teC-85-3nR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="YA0-R6-hU3" secondAttribute="trailing" id="2Ej-al-6Pz"/>
+                <constraint firstItem="YA0-R6-hU3" firstAttribute="top" secondItem="dI8-2G-R5O" secondAttribute="top" constant="10" id="8UU-B8-uoc"/>
+                <constraint firstItem="Omm-wE-u6L" firstAttribute="top" secondItem="YA0-R6-hU3" secondAttribute="bottom" constant="10" id="DI8-Uv-dy0"/>
+                <constraint firstItem="YA0-R6-hU3" firstAttribute="leading" secondItem="dI8-2G-R5O" secondAttribute="leading" id="QY4-J1-MPK"/>
+                <constraint firstItem="Omm-wE-u6L" firstAttribute="leading" secondItem="P0Y-L9-VVf" secondAttribute="centerX" id="vZT-xK-6gh"/>
+                <constraint firstItem="Omm-wE-u6L" firstAttribute="trailing" secondItem="9P2-kK-7aS" secondAttribute="centerX" id="yEe-d8-mrQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="147" y="165"/>
+        </view>
+    </objects>
+</document>
