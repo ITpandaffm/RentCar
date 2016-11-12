@@ -147,6 +147,8 @@
     UIView *dotView = self.dotsMurArr[position];
     self.carBtn.center = dotView.center;
 }
+
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     UIView *currentDotView;

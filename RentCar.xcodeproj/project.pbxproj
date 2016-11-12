@@ -10,6 +10,8 @@
 		8B49DD241DD37F8200EDFCFB /* MySliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B49DD231DD37F8200EDFCFB /* MySliderView.m */; };
 		8B49DD261DD37F9B00EDFCFB /* MySliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B49DD251DD37F9B00EDFCFB /* MySliderView.xib */; };
 		8BEDAEA31DD544D7006712D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDAEA21DD544D7006712D2 /* ViewController.m */; };
+		8BEDAEA71DD76C20006712D2 /* CarAnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDAEA61DD76C20006712D2 /* CarAnotationView.m */; };
+		8BEDAEAA1DD77786006712D2 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDAEA91DD77786006712D2 /* MyAnnotation.m */; };
 		8BF712571DD0515B004CE5A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF712561DD0515B004CE5A0 /* main.m */; };
 		8BF7125A1DD0515B004CE5A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF712591DD0515B004CE5A0 /* AppDelegate.m */; };
 		8BF712601DD0515B004CE5A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF7125E1DD0515B004CE5A0 /* Main.storyboard */; };
@@ -43,6 +45,10 @@
 		8BEDAEA11DD544D7006712D2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8BEDAEA21DD544D7006712D2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8BEDAEA41DD54B3A006712D2 /* SliderControlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderControlDelegate.h; sourceTree = "<group>"; };
+		8BEDAEA51DD76C20006712D2 /* CarAnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarAnotationView.h; sourceTree = "<group>"; };
+		8BEDAEA61DD76C20006712D2 /* CarAnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarAnotationView.m; sourceTree = "<group>"; };
+		8BEDAEA81DD77786006712D2 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		8BEDAEA91DD77786006712D2 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		8BF712521DD0515B004CE5A0 /* RentCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF712561DD0515B004CE5A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BF712581DD0515B004CE5A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,9 +120,13 @@
 				8B49DD221DD37F8200EDFCFB /* MySliderView.h */,
 				8B49DD231DD37F8200EDFCFB /* MySliderView.m */,
 				8BEDAEA41DD54B3A006712D2 /* SliderControlDelegate.h */,
+				8BEDAEA81DD77786006712D2 /* MyAnnotation.h */,
+				8BEDAEA91DD77786006712D2 /* MyAnnotation.m */,
 				8BEDAEA11DD544D7006712D2 /* ViewController.h */,
-				8BF712611DD0515B004CE5A0 /* Assets.xcassets */,
 				8BEDAEA21DD544D7006712D2 /* ViewController.m */,
+				8BEDAEA51DD76C20006712D2 /* CarAnotationView.h */,
+				8BEDAEA61DD76C20006712D2 /* CarAnotationView.m */,
+				8BF712611DD0515B004CE5A0 /* Assets.xcassets */,
 				8BF712631DD0515B004CE5A0 /* LaunchScreen.storyboard */,
 				8BF712661DD0515B004CE5A0 /* Info.plist */,
 				8BF712551DD0515B004CE5A0 /* Supporting Files */,
@@ -287,7 +297,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BEDAEA71DD76C20006712D2 /* CarAnotationView.m in Sources */,
 				8B49DD241DD37F8200EDFCFB /* MySliderView.m in Sources */,
+				8BEDAEAA1DD77786006712D2 /* MyAnnotation.m in Sources */,
 				8BF7125A1DD0515B004CE5A0 /* AppDelegate.m in Sources */,
 				8BEDAEA31DD544D7006712D2 /* ViewController.m in Sources */,
 				8BF712571DD0515B004CE5A0 /* main.m in Sources */,

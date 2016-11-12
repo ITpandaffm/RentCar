@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MySliderView.h"
 #import "SliderControlDelegate.h"
+#import "CarAnotationView.h"
 @interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate, SliderControlDelegate>
 
 @property (nonatomic, strong)MKMapView *mapView;
@@ -18,9 +19,13 @@
 @end
 
 @implementation ViewController
+{
+    int CurrentCarGroup;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CurrentCarGroup = 1;
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
     
@@ -40,6 +45,16 @@
             NSLog(@"获取权限失败，请检查你的设置");
             break;
     }
+    
+    
+}
+
+//大头针
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    CarAnotationView *carAnotationView = [[CarAnotationView alloc] initWithFrame:CGRectMake(0, 0, 45, 45) annotationPic:[UIImage imageNamed:[NSString stringWithFormat:@"car%d", CurrentCarGroup]]];
+    carAnotationView.backgroundColor = [UIColor clearColor];
+    return carAnotationView;
 }
 
 
@@ -61,10 +76,39 @@
 {
     NSLog(@"定位用户位置成功~");
 }
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views
+{
+    NSLog(@"didAddAnnotationViews");
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"calloutAccessoryControlTapped");
+}
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    NSLog(@"didSelectAnnotationView %@",view.description);
+}
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    NSLog(@"didDeselectAnnotationView %@",view.description);
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
+{
+    
+}
+
+
+
+
+
 #pragma mark SliderControlDelegate
 - (void)sliderControl:(MySliderView *)sliderControlView moveToPosition:(int)position
 {
     NSLog(@"现在移动到%d", position);
+    CurrentCarGroup = position;
 }
 
 
