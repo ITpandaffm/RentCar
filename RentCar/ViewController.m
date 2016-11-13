@@ -10,11 +10,19 @@
 #import "MySliderView.h"
 #import "SliderControlDelegate.h"
 #import "CarAnotationView.h"
+#import "MyAnnotation.h"
+
+#define LATTITUDE 41.76
+#define LONGITUDE 123.41
+
 @interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate, SliderControlDelegate>
 
 @property (nonatomic, strong)MKMapView *mapView;
 @property (nonatomic, strong)CLLocationManager *locationManager;
 
+
+@property (nonatomic, strong) NSArray *carAnnotationGroup1;
+@property (nonatomic, strong) NSArray *carAnnotationGroup2;
 
 @end
 
@@ -52,7 +60,13 @@
 //大头针
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    CarAnotationView *carAnotationView = [[CarAnotationView alloc] initWithFrame:CGRectMake(0, 0, 45, 45) annotationPic:[UIImage imageNamed:[NSString stringWithFormat:@"car%d", CurrentCarGroup]]];
+    CGRect rect = CGRectMake(0, 0, 45, 45);
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        return nil;
+    }
+    
+    CarAnotationView *carAnotationView = [[CarAnotationView alloc] initWithFrame:rect annotationPic:[UIImage imageNamed:[NSString stringWithFormat:@"car%d", CurrentCarGroup]]];
     carAnotationView.backgroundColor = [UIColor clearColor];
     return carAnotationView;
 }
@@ -63,6 +77,7 @@
 {
     self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
     [self.locationManager startUpdatingLocation];
+    
 }
 
 #pragma mark CLLocationManagerDelegate
@@ -75,6 +90,10 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     NSLog(@"定位用户位置成功~");
+//    MyAnnotation *userAnnotation =  [[MyAnnotation alloc] init];
+//    userAnnotation.coordinate = userLocation.location.coordinate;
+//    [self.mapView addAnnotation:userAnnotation];
+
 }
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views
@@ -88,11 +107,11 @@
 }
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    NSLog(@"didSelectAnnotationView %@",view.description);
+    NSLog(@"选择了大头针 %@",view.description);
 }
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-    NSLog(@"didDeselectAnnotationView %@",view.description);
+    NSLog(@"取消选择了大头针 %@",view.description);
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
@@ -109,6 +128,15 @@
 {
     NSLog(@"现在移动到%d", position);
     CurrentCarGroup = position;
+    if (CurrentCarGroup == 0)
+    {
+        [self.mapView addAnnotations:self.carAnnotationGroup1];
+        [self.mapView removeAnnotations:self.carAnnotationGroup2];
+    } else if (CurrentCarGroup == 1)
+    {
+        [self.mapView addAnnotations:self.carAnnotationGroup2];
+        [self.mapView removeAnnotations:self.carAnnotationGroup1];
+    }
 }
 
 
@@ -140,6 +168,43 @@
     return _mapView;
 }
 
+- (NSArray *)carAnnotationGroup1
+{
+    if (!_carAnnotationGroup1)
+    {
+        NSMutableArray *carAnnotations = [NSMutableArray array];
+        
+        for (int i = 1; i < 5; i++)
+        {
+            MyAnnotation *annotation1 = [[MyAnnotation alloc] init];
+            annotation1.coordinate = CLLocationCoordinate2DMake(LATTITUDE-0.005*i, LONGITUDE);
+            annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
+            annotation1.subtitle = @"TestSubtitle1";
+            [carAnnotations addObject:annotation1];
+        }
+        _carAnnotationGroup1 = carAnnotations;
+    }
+    return _carAnnotationGroup1;
+}
+
+- (NSArray *)carAnnotationGroup2
+{
+    if (!_carAnnotationGroup2)
+    {
+        NSMutableArray *carAnnotations = [NSMutableArray array];
+        
+        for (int i = 1; i < 5; i++)
+        {
+            MyAnnotation *annotation1 = [[MyAnnotation alloc] init];
+            annotation1.coordinate = CLLocationCoordinate2DMake(LATTITUDE-0.005*i, LONGITUDE-i*0.005);
+            annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
+            annotation1.subtitle = @"TestSubtitle2";
+            [carAnnotations addObject:annotation1];
+        }
+        _carAnnotationGroup2 = carAnnotations;
+    }
+    return _carAnnotationGroup2;
+}
 
 
 

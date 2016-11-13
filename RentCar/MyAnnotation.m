@@ -10,9 +10,6 @@
 
 @implementation MyAnnotation
 
-- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate
-{
-    self.coordinate = newCoordinate;
-}
+
 
 @end
