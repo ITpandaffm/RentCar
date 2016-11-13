@@ -17,11 +17,61 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7L-rf-nSV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="B00-3K-Yfa"/>
+                                    <constraint firstAttribute="height" constant="44" id="hOP-kp-gwz"/>
+                                </constraints>
+                                <state key="normal" image="Zoom Out"/>
+                                <connections>
+                                    <action selector="zoomOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bw6-IS-wzG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9G-Fi-dCq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="28M-4r-kLI"/>
+                                    <constraint firstAttribute="height" constant="44" id="n3m-a9-P0x"/>
+                                </constraints>
+                                <state key="normal" image="Zoom In"/>
+                                <connections>
+                                    <action selector="zoomIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="44Q-C9-NIi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-vK-ukT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GcX-yN-Mun"/>
+                                    <constraint firstAttribute="width" constant="44" id="UBV-Tb-DYk"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="pig"/>
+                                <connections>
+                                    <action selector="setUserLocationCenter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iPF-O4-LxS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="K7L-rf-nSV" firstAttribute="centerY" secondItem="iy2-vK-ukT" secondAttribute="centerY" id="0an-6N-czc"/>
+                            <constraint firstItem="iy2-vK-ukT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="5iM-JY-a2V"/>
+                            <constraint firstItem="K7L-rf-nSV" firstAttribute="centerX" secondItem="U9G-Fi-dCq" secondAttribute="centerX" id="GWj-ZA-ulQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K7L-rf-nSV" secondAttribute="bottom" constant="120" id="ZUu-bL-tr0"/>
+                            <constraint firstAttribute="trailing" secondItem="K7L-rf-nSV" secondAttribute="trailing" constant="10" id="rRo-EC-CaZ"/>
+                            <constraint firstItem="K7L-rf-nSV" firstAttribute="top" secondItem="U9G-Fi-dCq" secondAttribute="bottom" constant="5" id="xMl-PY-5aK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locateBtn" destination="iy2-vK-ukT" id="vF5-Gn-x1Z"/>
+                        <outlet property="zoomInBtn" destination="U9G-Fi-dCq" id="FVq-7f-zWl"/>
+                        <outlet property="zoomOutBtn" destination="K7L-rf-nSV" id="Nk7-sa-5uJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="118.29085457271366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Zoom In" width="128" height="128"/>
+        <image name="Zoom Out" width="128" height="128"/>
+        <image name="pig" width="52" height="61"/>
+    </resources>
 </document>

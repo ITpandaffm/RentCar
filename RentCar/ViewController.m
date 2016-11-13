@@ -24,16 +24,23 @@
 @property (nonatomic, strong) NSArray *carAnnotationGroup1;
 @property (nonatomic, strong) NSArray *carAnnotationGroup2;
 
+@property (weak, nonatomic) IBOutlet UIButton *zoomInBtn;
+@property (weak, nonatomic) IBOutlet UIButton *zoomOutBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *locateBtn;
+
 @end
 
 @implementation ViewController
 {
     int CurrentCarGroup;
+    int zoomLevel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     CurrentCarGroup = 0;
+    zoomLevel = 1;
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
     
@@ -53,6 +60,9 @@
             NSLog(@"获取权限失败，请检查你的设置");
             break;
     }
+    [self.view bringSubviewToFront:self.zoomInBtn];
+    [self.view bringSubviewToFront:self.zoomOutBtn];
+    [self.view bringSubviewToFront:self.locateBtn];
     
     
 }
@@ -69,6 +79,32 @@
     CarAnotationView *carAnotationView = [[CarAnotationView alloc] initWithFrame:rect annotationPic:[UIImage imageNamed:[NSString stringWithFormat:@"car%d", CurrentCarGroup]]];
     carAnotationView.backgroundColor = [UIColor clearColor];
     return carAnotationView;
+}
+
+#pragma mark click Methods
+
+- (IBAction)setUserLocationCenter:(id)sender
+{
+    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+}
+
+- (IBAction)zoomIn:(id)sender
+{
+    if (zoomLevel >= 1)
+    {
+        zoomLevel++;
+        [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.region.center, MKCoordinateSpanMake(1000*zoomLevel, 1000*zoomLevel)) animated:YES];
+    }
+    
+}
+
+- (IBAction)zoomOut:(id)sender
+{
+    if (zoomLevel <= 10)
+    {
+        zoomLevel--;
+        [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.region.center, MKCoordinateSpanMake(1000/zoomLevel, 1000/zoomLevel)) animated:YES];
+    }
 }
 
 
