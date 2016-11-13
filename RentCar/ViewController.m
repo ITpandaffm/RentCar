@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CurrentCarGroup = 1;
+    CurrentCarGroup = 0;
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
     
@@ -90,6 +90,7 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     NSLog(@"定位用户位置成功~");
+    [self.mapView addAnnotations:self.carAnnotationGroup1];
 //    MyAnnotation *userAnnotation =  [[MyAnnotation alloc] init];
 //    userAnnotation.coordinate = userLocation.location.coordinate;
 //    [self.mapView addAnnotation:userAnnotation];
@@ -107,7 +108,7 @@
 }
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    NSLog(@"选择了大头针 %@",view.description);
+    [self.mapView setCenterCoordinate:view.annotation.coordinate animated:YES];
 }
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
@@ -130,12 +131,15 @@
     CurrentCarGroup = position;
     if (CurrentCarGroup == 0)
     {
+        [self.mapView removeAnnotations:self.mapView.annotations];
         [self.mapView addAnnotations:self.carAnnotationGroup1];
-        [self.mapView removeAnnotations:self.carAnnotationGroup2];
     } else if (CurrentCarGroup == 1)
     {
+        [self.mapView removeAnnotations:self.mapView.annotations];
         [self.mapView addAnnotations:self.carAnnotationGroup2];
-        [self.mapView removeAnnotations:self.carAnnotationGroup1];
+    } else
+    {
+        [self.mapView removeAnnotations:self.mapView.annotations];
     }
 }
 
