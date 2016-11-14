@@ -13,7 +13,15 @@
   
   bug：还是会有，最明显一个就是 点击大头针之后，如果不是点击其他地方，出发deselect方法的话，（比如直接点击另外一个大头针，就触发不了deselect了）然后就会有bug了。
     健壮性还是不够
+ 
+ 11.20更新：
+ 问题：点击用户坐标（蓝色点）会闪退（估计是selectAnnotation没有区别开MKUserLocation的问题）-->bingo!
+    测试的数据应该在用户实际位置附近（经纬度+-0.001或随机）——>done!
+    点击大头针后，再点击大头针就会出现bug，触发不了deselect函数（那我可以卡片view出现前就取消选择呀）
+       -->事实证明手动触发取消选择是错的。 但是原来可以不用把carInfoView, sendback其实只要透明度为零就好，之前的冲突就是因为deselcet动画还在执行，然后已经开始触发新的select，所以在进行新的select的时候，那边deselect执行完 就执行了sendback，所以整个carInfoView都不见了。
+ 
 */
+
 #import "ViewController.h"
 #import "MySliderView.h"
 #import "SliderControlDelegate.h"
@@ -21,9 +29,9 @@
 #import "MyAnnotation.h"
 #import "CarInfoModel.h"
 
-
-#define LATTITUDE 41.76
-#define LONGITUDE 123.41
+#define USERLATITUDE self.self.mapView.userLocation.coordinate.latitude
+#define USERLONGITUDE self.mapView.userLocation.coordinate.longitude
+#define USERCOORDINATE self.mapView.userLocation.location.coordinate
 
 @interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate, SliderControlDelegate>
 
@@ -56,10 +64,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setup];
+}
+
+- (void)setup
+{
     CurrentCarGroup = 0;
     zoomLevel = 5;
+    
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-
+    
     switch (status)
     {
         case 0:
@@ -82,6 +96,7 @@
     
 }
 
+
 //大头针
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -100,7 +115,7 @@
 //点击按钮定位到用户当前位置
 - (IBAction)setUserLocationCenter:(id)sender
 {
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+    [self.mapView setCenterCoordinate:USERCOORDINATE animated:YES];
 }
 
 //放大
@@ -142,49 +157,55 @@
 #pragma mark MKMapViewDelegate
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    NSLog(@"定位用户位置成功~");
+//    NSLog(@"定位用户位置成功~");
     [self.mapView addAnnotations:self.carAnnotationGroup1];
-
-
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     
+    //要注意判断区别开UserLocation
     [self.mapView setCenterCoordinate:view.annotation.coordinate animated:YES];
-    MyAnnotation *selectedAnnotation = view.annotation;
-    
-    NSString *identifier = selectedAnnotation.carIdentifier;
-    
-    for (CarInfoModel *model in self.carInfoPlistArr)
+    if (view.annotation.coordinate.latitude == USERLATITUDE
+        && view.annotation.coordinate.longitude == USERLONGITUDE)
     {
-        NSString *carID = model.carID;
-        if ([carID isEqualToString:identifier])
+        return;
+    } else
+    {
+        
+        MyAnnotation *selectedAnnotation = view.annotation;
+        NSString *identifier = selectedAnnotation.carIdentifier;
+        
+        for (CarInfoModel *model in self.carInfoPlistArr)
         {
-            self.carNumber.text = model.carNumber;
-            self.carType.text = model.carType;
-            self.carSeats.text = model.carSeats;
-            self.carPic.image = [UIImage imageNamed:model.carInfo];
+            NSString *carID = model.carID;
+            if ([carID isEqualToString:identifier])
+            {
+                self.carNumber.text = model.carNumber;
+                self.carType.text = model.carType;
+                self.carSeats.text = model.carSeats;
+                self.carPic.image = [UIImage imageNamed:model.carInfo];
+            }
         }
+        
+        [self.view bringSubviewToFront:self.carInfoView];
+        self.carInfoView.alpha = 0;
+        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
+            self.carInfoView.alpha = 1;
+        } completion:^(BOOL finished) {
+
+        }];
     }
-    
-    [self.view bringSubviewToFront:self.carInfoView];
-    self.carInfoView.alpha = 0;
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
-        self.carInfoView.alpha = 1;
-    } completion:^(BOOL finished) {
-        NSLog(@"被选中啦");
-    }];
+
     
 }
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-    NSLog(@"取消选择了大头针 %@",view.description);
     
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
         self.carInfoView.alpha = 0;
     } completion:^(BOOL finished) {
-        [self.view sendSubviewToBack:self.carInfoView];
+
     }];
 
 }
@@ -246,7 +267,7 @@
         for (int i = 1; i < 5; i++)
         {
             MyAnnotation *annotation1 = [[MyAnnotation alloc] init];
-            annotation1.coordinate = CLLocationCoordinate2DMake(LATTITUDE-0.005*i, LONGITUDE);
+            annotation1.coordinate = CLLocationCoordinate2DMake(USERLATITUDE-0.005*i, USERLONGITUDE);
             annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
             annotation1.subtitle = @"TestSubtitle1";
             annotation1.carGroup = 1;
@@ -269,7 +290,7 @@
         for (int i = 1; i < 5; i++)
         {
             MyAnnotation *annotation1 = [[MyAnnotation alloc] init];
-            annotation1.coordinate = CLLocationCoordinate2DMake(LATTITUDE-0.005*i, LONGITUDE-i*0.005);
+            annotation1.coordinate = CLLocationCoordinate2DMake(USERLATITUDE-0.005*i, USERLONGITUDE-i*0.005);
             annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
             annotation1.subtitle = @"TestSubtitle2";
             annotation1.carGroup = 2;
