@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CurrentCarGroup = 0;
-    zoomLevel = 1;
+    zoomLevel = 5;
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
     
@@ -90,20 +90,20 @@
 
 - (IBAction)zoomIn:(id)sender
 {
-    if (zoomLevel >= 1)
+    if (zoomLevel >= -1 && zoomLevel <= 8)
     {
         zoomLevel++;
-        [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.region.center, MKCoordinateSpanMake(1000*zoomLevel, 1000*zoomLevel)) animated:YES];
+        [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.region.center, MKCoordinateSpanMake(self.mapView.region.span.latitudeDelta/1.5, self.mapView.region.span.longitudeDelta/1.5)) animated:YES];
     }
     
 }
 
 - (IBAction)zoomOut:(id)sender
 {
-    if (zoomLevel <= 10)
+    if (zoomLevel >= 0 && zoomLevel <= 9)
     {
         zoomLevel--;
-        [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.region.center, MKCoordinateSpanMake(1000/zoomLevel, 1000/zoomLevel)) animated:YES];
+        [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.region.center, MKCoordinateSpanMake(self.mapView.region.span.latitudeDelta*1.5, self.mapView.region.span.longitudeDelta*1.5)) animated:YES];
     }
 }
 
