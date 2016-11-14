@@ -6,11 +6,21 @@
 //  Copyright © 2016年 ITPanda. All rights reserved.
 //
 
+/*
+  终于完成了这个大作业了。。。吐一口老血
+  基本实现了所有的要求啦，然后视频里的点击大头针然后滚动到相应的卡片上那个
+  感觉是scrollView或者collectionView，这里简化成一个UIViewAnimation，因为感觉不是这章的重点
+  
+  bug：还是会有，最明显一个就是 点击大头针之后，如果不是点击其他地方，出发deselect方法的话，（比如直接点击另外一个大头针，就触发不了deselect了）然后就会有bug了。
+    健壮性还是不够
+*/
 #import "ViewController.h"
 #import "MySliderView.h"
 #import "SliderControlDelegate.h"
 #import "CarAnotationView.h"
 #import "MyAnnotation.h"
+#import "CarInfoModel.h"
+
 
 #define LATTITUDE 41.76
 #define LONGITUDE 123.41
@@ -20,7 +30,6 @@
 @property (nonatomic, strong)MKMapView *mapView;
 @property (nonatomic, strong)CLLocationManager *locationManager;
 
-
 @property (nonatomic, strong) NSArray *carAnnotationGroup1;
 @property (nonatomic, strong) NSArray *carAnnotationGroup2;
 
@@ -28,8 +37,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *zoomOutBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *locateBtn;
-
 @property (weak, nonatomic) IBOutlet UIView *carInfoView;
+
+@property (nonatomic, strong) NSArray *carInfoPlistArr;
+
+@property (weak, nonatomic) IBOutlet UIImageView *carPic;
+@property (weak, nonatomic) IBOutlet UILabel *carNumber;
+@property (weak, nonatomic) IBOutlet UILabel *carType;
+@property (weak, nonatomic) IBOutlet UILabel *carSeats;
 
 @end
 
@@ -44,8 +59,7 @@
     CurrentCarGroup = 0;
     zoomLevel = 5;
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    
-    
+
     switch (status)
     {
         case 0:
@@ -130,24 +144,36 @@
 {
     NSLog(@"定位用户位置成功~");
     [self.mapView addAnnotations:self.carAnnotationGroup1];
-//    MyAnnotation *userAnnotation =  [[MyAnnotation alloc] init];
-//    userAnnotation.coordinate = userLocation.location.coordinate;
-//    [self.mapView addAnnotation:userAnnotation];
+
 
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    
     [self.mapView setCenterCoordinate:view.annotation.coordinate animated:YES];
     MyAnnotation *selectedAnnotation = view.annotation;
-    NSLog(@"%@", selectedAnnotation.carIdentifier);
+    
+    NSString *identifier = selectedAnnotation.carIdentifier;
+    
+    for (CarInfoModel *model in self.carInfoPlistArr)
+    {
+        NSString *carID = model.carID;
+        if ([carID isEqualToString:identifier])
+        {
+            self.carNumber.text = model.carNumber;
+            self.carType.text = model.carType;
+            self.carSeats.text = model.carSeats;
+            self.carPic.image = [UIImage imageNamed:model.carInfo];
+        }
+    }
     
     [self.view bringSubviewToFront:self.carInfoView];
     self.carInfoView.alpha = 0;
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
         self.carInfoView.alpha = 1;
     } completion:^(BOOL finished) {
-        
+        NSLog(@"被选中啦");
     }];
     
 }
@@ -155,7 +181,7 @@
 {
     NSLog(@"取消选择了大头针 %@",view.description);
     
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
         self.carInfoView.alpha = 0;
     } completion:^(BOOL finished) {
         [self.view sendSubviewToBack:self.carInfoView];
@@ -257,6 +283,23 @@
     return _carAnnotationGroup2;
 }
 
+- (NSArray *)carInfoPlistArr
+{
+    if (!_carInfoPlistArr)
+    {
+        NSString *strPath = [[NSBundle mainBundle] pathForResource:@"CarInfo" ofType:@"plist"];
+        NSArray *tempArr = [[NSArray alloc] initWithContentsOfFile:strPath];
+        NSMutableArray *murArr = [NSMutableArray array];
+        CarInfoModel *model;
+        for (NSDictionary *dict in tempArr)
+        {
+            model = [CarInfoModel carModelWithDict:dict];
+            [murArr addObject:model];
+        }
+        _carInfoPlistArr = murArr;
+    }
+    return _carInfoPlistArr;
+}
 
 /*
 #pragma mark - Navigation

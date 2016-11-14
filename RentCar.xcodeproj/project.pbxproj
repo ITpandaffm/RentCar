@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8B49DD241DD37F8200EDFCFB /* MySliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B49DD231DD37F8200EDFCFB /* MySliderView.m */; };
 		8B49DD261DD37F9B00EDFCFB /* MySliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B49DD251DD37F9B00EDFCFB /* MySliderView.xib */; };
+		8BE8E8641DD9E08E005689F9 /* CarInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE8E8631DD9E08E005689F9 /* CarInfoModel.m */; };
+		8BE8E86E1DD9E2BA005689F9 /* CarInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BE8E86D1DD9E2BA005689F9 /* CarInfo.plist */; };
 		8BEDAEA31DD544D7006712D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDAEA21DD544D7006712D2 /* ViewController.m */; };
 		8BEDAEA71DD76C20006712D2 /* CarAnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDAEA61DD76C20006712D2 /* CarAnotationView.m */; };
 		8BEDAEAA1DD77786006712D2 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDAEA91DD77786006712D2 /* MyAnnotation.m */; };
@@ -42,6 +44,9 @@
 		8B49DD221DD37F8200EDFCFB /* MySliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySliderView.h; sourceTree = "<group>"; };
 		8B49DD231DD37F8200EDFCFB /* MySliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySliderView.m; sourceTree = "<group>"; };
 		8B49DD251DD37F9B00EDFCFB /* MySliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySliderView.xib; sourceTree = "<group>"; };
+		8BE8E8621DD9E08E005689F9 /* CarInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInfoModel.h; sourceTree = "<group>"; };
+		8BE8E8631DD9E08E005689F9 /* CarInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInfoModel.m; sourceTree = "<group>"; };
+		8BE8E86D1DD9E2BA005689F9 /* CarInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CarInfo.plist; sourceTree = "<group>"; };
 		8BEDAEA11DD544D7006712D2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8BEDAEA21DD544D7006712D2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8BEDAEA41DD54B3A006712D2 /* SliderControlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderControlDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +95,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BE8E86F1DD9F641005689F9 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				8BE8E8621DD9E08E005689F9 /* CarInfoModel.h */,
+				8BE8E8631DD9E08E005689F9 /* CarInfoModel.m */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		8BE8E8701DD9F666005689F9 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				8BEDAEA51DD76C20006712D2 /* CarAnotationView.h */,
+				8BEDAEA61DD76C20006712D2 /* CarAnotationView.m */,
+				8B49DD251DD37F9B00EDFCFB /* MySliderView.xib */,
+				8B49DD221DD37F8200EDFCFB /* MySliderView.h */,
+				8B49DD231DD37F8200EDFCFB /* MySliderView.m */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		8BE8E8711DD9F697005689F9 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				8BEDAEA11DD544D7006712D2 /* ViewController.h */,
+				8BEDAEA21DD544D7006712D2 /* ViewController.m */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
 		8BF712491DD0515B004CE5A0 = {
 			isa = PBXGroup;
 			children = (
@@ -116,18 +151,15 @@
 				8BF712581DD0515B004CE5A0 /* AppDelegate.h */,
 				8BF712591DD0515B004CE5A0 /* AppDelegate.m */,
 				8BF7125E1DD0515B004CE5A0 /* Main.storyboard */,
-				8B49DD251DD37F9B00EDFCFB /* MySliderView.xib */,
-				8B49DD221DD37F8200EDFCFB /* MySliderView.h */,
-				8B49DD231DD37F8200EDFCFB /* MySliderView.m */,
-				8BEDAEA41DD54B3A006712D2 /* SliderControlDelegate.h */,
+				8BE8E86F1DD9F641005689F9 /* M */,
+				8BE8E8701DD9F666005689F9 /* V */,
+				8BE8E8711DD9F697005689F9 /* C */,
 				8BEDAEA81DD77786006712D2 /* MyAnnotation.h */,
 				8BEDAEA91DD77786006712D2 /* MyAnnotation.m */,
-				8BEDAEA11DD544D7006712D2 /* ViewController.h */,
-				8BEDAEA21DD544D7006712D2 /* ViewController.m */,
-				8BEDAEA51DD76C20006712D2 /* CarAnotationView.h */,
-				8BEDAEA61DD76C20006712D2 /* CarAnotationView.m */,
+				8BEDAEA41DD54B3A006712D2 /* SliderControlDelegate.h */,
 				8BF712611DD0515B004CE5A0 /* Assets.xcassets */,
 				8BF712631DD0515B004CE5A0 /* LaunchScreen.storyboard */,
+				8BE8E86D1DD9E2BA005689F9 /* CarInfo.plist */,
 				8BF712661DD0515B004CE5A0 /* Info.plist */,
 				8BF712551DD0515B004CE5A0 /* Supporting Files */,
 			);
@@ -269,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE8E86E1DD9E2BA005689F9 /* CarInfo.plist in Resources */,
 				8BF712651DD0515B004CE5A0 /* LaunchScreen.storyboard in Resources */,
 				8BF712621DD0515B004CE5A0 /* Assets.xcassets in Resources */,
 				8B49DD261DD37F9B00EDFCFB /* MySliderView.xib in Resources */,
@@ -303,6 +336,7 @@
 				8BF7125A1DD0515B004CE5A0 /* AppDelegate.m in Sources */,
 				8BEDAEA31DD544D7006712D2 /* ViewController.m in Sources */,
 				8BF712571DD0515B004CE5A0 /* main.m in Sources */,
+				8BE8E8641DD9E08E005689F9 /* CarInfoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
