@@ -16,7 +16,7 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic, assign) int carGroup;
-
+@property (nonatomic, copy) NSString *carIdentifier;
 
 
 

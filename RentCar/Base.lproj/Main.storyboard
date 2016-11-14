@@ -48,17 +48,31 @@
                                     <action selector="setUserLocationCenter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iPF-O4-LxS"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XY-de-mUw">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carInfo8" translatesAutoresizingMaskIntoConstraints="NO" id="nwa-Pk-XnL">
+                                        <frame key="frameInset" minX="17" minY="25" width="92" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="K7L-rf-nSV" firstAttribute="centerY" secondItem="iy2-vK-ukT" secondAttribute="centerY" id="0an-6N-czc"/>
                             <constraint firstItem="iy2-vK-ukT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="5iM-JY-a2V"/>
+                            <constraint firstItem="6XY-de-mUw" firstAttribute="bottom" secondItem="iy2-vK-ukT" secondAttribute="bottom" id="G0J-Cn-U6y"/>
                             <constraint firstItem="K7L-rf-nSV" firstAttribute="centerX" secondItem="U9G-Fi-dCq" secondAttribute="centerX" id="GWj-ZA-ulQ"/>
+                            <constraint firstItem="6XY-de-mUw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="407" id="Mjz-z7-tPN"/>
+                            <constraint firstItem="6XY-de-mUw" firstAttribute="leading" secondItem="iy2-vK-ukT" secondAttribute="trailing" constant="15" id="Wp4-aJ-khb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K7L-rf-nSV" secondAttribute="bottom" constant="120" id="ZUu-bL-tr0"/>
+                            <constraint firstItem="6XY-de-mUw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qqp-3f-xzz"/>
                             <constraint firstAttribute="trailing" secondItem="K7L-rf-nSV" secondAttribute="trailing" constant="10" id="rRo-EC-CaZ"/>
                             <constraint firstItem="K7L-rf-nSV" firstAttribute="top" secondItem="U9G-Fi-dCq" secondAttribute="bottom" constant="5" id="xMl-PY-5aK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="carInfoView" destination="6XY-de-mUw" id="q39-01-NTa"/>
                         <outlet property="locateBtn" destination="iy2-vK-ukT" id="vF5-Gn-x1Z"/>
                         <outlet property="zoomInBtn" destination="U9G-Fi-dCq" id="FVq-7f-zWl"/>
                         <outlet property="zoomOutBtn" destination="K7L-rf-nSV" id="Nk7-sa-5uJ"/>
@@ -72,6 +86,7 @@
     <resources>
         <image name="Zoom In" width="128" height="128"/>
         <image name="Zoom Out" width="128" height="128"/>
+        <image name="carInfo8" width="141" height="130"/>
         <image name="pig" width="52" height="61"/>
     </resources>
 </document>

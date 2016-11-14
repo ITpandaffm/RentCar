@@ -68,11 +68,11 @@
     [super layoutSubviews];
     [self layoutIfNeeded];
     
-    UIView *sliderBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.sliderWrapperView.frame.size.width, 4)];
+    UIView *sliderBar = [[UIView alloc] initWithFrame:CGRectMake(0, (self.sliderWrapperView.bounds.size.height - 4)/2, self.sliderWrapperView.frame.size.width, 4)];
     sliderBar.layer.cornerRadius = 2;
-    sliderBar.backgroundColor = [UIColor redColor];
-    sliderBar.center = self.sliderWrapperView.center;
-    [self addSubview:sliderBar];
+    sliderBar.backgroundColor = [UIColor grayColor];
+//    sliderBar.center = self.sliderWrapperView.center;
+    [self.sliderWrapperView addSubview:sliderBar];
     
     
     CGFloat dotY = self.sliderWrapperView.frame.size.height / 2 - 4;
@@ -81,11 +81,12 @@
         CGFloat dotX = i * (self.sliderWrapperView.frame.size.width / 3) -4;
         UIView *dotView = [[UIView alloc] initWithFrame:CGRectMake(dotX, dotY, 8, 8)];
         dotView.layer.cornerRadius = 4;
-        dotView.backgroundColor = [UIColor redColor];
+        dotView.backgroundColor = [UIColor darkGrayColor];
         [self.sliderWrapperView addSubview:dotView];
         [self.dotsMurArr addObject:dotView];
     }
-    [self carBtn];
+    [self.sliderWrapperView bringSubviewToFront:self.carBtn];
+//    [self carBtn];
 }
 
 #pragma mark clickMethods

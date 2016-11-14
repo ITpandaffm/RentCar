@@ -29,6 +29,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *locateBtn;
 
+@property (weak, nonatomic) IBOutlet UIView *carInfoView;
+
 @end
 
 @implementation ViewController
@@ -64,7 +66,6 @@
     [self.view bringSubviewToFront:self.zoomOutBtn];
     [self.view bringSubviewToFront:self.locateBtn];
     
-    
 }
 
 //大头针
@@ -82,12 +83,13 @@
 }
 
 #pragma mark click Methods
-
+//点击按钮定位到用户当前位置
 - (IBAction)setUserLocationCenter:(id)sender
 {
     [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
 }
 
+//放大
 - (IBAction)zoomIn:(id)sender
 {
     if (zoomLevel >= -1 && zoomLevel <= 8)
@@ -98,6 +100,7 @@
     
 }
 
+//缩小
 - (IBAction)zoomOut:(id)sender
 {
     if (zoomLevel >= 0 && zoomLevel <= 9)
@@ -133,32 +136,32 @@
 
 }
 
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views
-{
-    NSLog(@"didAddAnnotationViews");
-}
-
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
-    NSLog(@"calloutAccessoryControlTapped");
-}
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     [self.mapView setCenterCoordinate:view.annotation.coordinate animated:YES];
+    MyAnnotation *selectedAnnotation = view.annotation;
+    NSLog(@"%@", selectedAnnotation.carIdentifier);
+    
+    [self.view bringSubviewToFront:self.carInfoView];
+    self.carInfoView.alpha = 0;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
+        self.carInfoView.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+    
 }
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
     NSLog(@"取消选择了大头针 %@",view.description);
-}
-
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
-{
     
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+        self.carInfoView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.view sendSubviewToBack:self.carInfoView];
+    }];
+
 }
-
-
-
-
 
 #pragma mark SliderControlDelegate
 - (void)sliderControl:(MySliderView *)sliderControlView moveToPosition:(int)position
@@ -220,6 +223,10 @@
             annotation1.coordinate = CLLocationCoordinate2DMake(LATTITUDE-0.005*i, LONGITUDE);
             annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
             annotation1.subtitle = @"TestSubtitle1";
+            annotation1.carGroup = 1;
+            
+            annotation1.carIdentifier = [NSString stringWithFormat:@"cargroup1_test%d",i];
+            
             [carAnnotations addObject:annotation1];
         }
         _carAnnotationGroup1 = carAnnotations;
@@ -239,14 +246,16 @@
             annotation1.coordinate = CLLocationCoordinate2DMake(LATTITUDE-0.005*i, LONGITUDE-i*0.005);
             annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
             annotation1.subtitle = @"TestSubtitle2";
+            annotation1.carGroup = 2;
+            
+            annotation1.carIdentifier = [NSString stringWithFormat:@"cargroup2_test%d",i];
+            
             [carAnnotations addObject:annotation1];
         }
         _carAnnotationGroup2 = carAnnotations;
     }
     return _carAnnotationGroup2;
 }
-
-
 
 
 /*
