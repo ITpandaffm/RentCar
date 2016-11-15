@@ -29,9 +29,9 @@
 #import "MyAnnotation.h"
 #import "CarInfoModel.h"
 
-#define USERLATITUDE self.self.mapView.userLocation.coordinate.latitude
-#define USERLONGITUDE self.mapView.userLocation.coordinate.longitude
-#define USERCOORDINATE self.mapView.userLocation.location.coordinate
+#define USER_LATITUDE self.self.mapView.userLocation.coordinate.latitude
+#define USER_LONGITUDE self.mapView.userLocation.coordinate.longitude
+#define USER_COORDINATE self.mapView.userLocation.location.coordinate
 
 @interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate, SliderControlDelegate>
 
@@ -115,7 +115,7 @@
 //点击按钮定位到用户当前位置
 - (IBAction)setUserLocationCenter:(id)sender
 {
-    [self.mapView setCenterCoordinate:USERCOORDINATE animated:YES];
+    [self.mapView setCenterCoordinate:USER_COORDINATE animated:YES];
 }
 
 //放大
@@ -166,8 +166,8 @@
     
     //要注意判断区别开UserLocation
     [self.mapView setCenterCoordinate:view.annotation.coordinate animated:YES];
-    if (view.annotation.coordinate.latitude == USERLATITUDE
-        && view.annotation.coordinate.longitude == USERLONGITUDE)
+    if (view.annotation.coordinate.latitude == USER_LATITUDE
+        && view.annotation.coordinate.longitude == USER_LONGITUDE)
     {
         return;
     } else
@@ -267,7 +267,7 @@
         for (int i = 1; i < 5; i++)
         {
             MyAnnotation *annotation1 = [[MyAnnotation alloc] init];
-            annotation1.coordinate = CLLocationCoordinate2DMake(USERLATITUDE-0.005*i, USERLONGITUDE);
+            annotation1.coordinate = CLLocationCoordinate2DMake(USER_LATITUDE-0.005*i, USER_LONGITUDE);
             annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
             annotation1.subtitle = @"TestSubtitle1";
             annotation1.carGroup = 1;
@@ -290,7 +290,7 @@
         for (int i = 1; i < 5; i++)
         {
             MyAnnotation *annotation1 = [[MyAnnotation alloc] init];
-            annotation1.coordinate = CLLocationCoordinate2DMake(USERLATITUDE-0.005*i, USERLONGITUDE-i*0.005);
+            annotation1.coordinate = CLLocationCoordinate2DMake(USER_LATITUDE-0.005*i, USER_LONGITUDE-i*0.005);
             annotation1.title = [NSString stringWithFormat:@"TestData%d", i];
             annotation1.subtitle = @"TestSubtitle2";
             annotation1.carGroup = 2;
